@@ -2,13 +2,13 @@ import { useState, useEffect, useCallback } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { useAuth } from '../context/AuthContext';
 import { postService } from '../services/postService';
-import { storyService } from '../services/storyService';
 import api from '../services/api';
-import { Post, Comment, Story, ApiResponse } from '../types';
+import { Post, Comment, ApiResponse } from '../types';
 import Avatar from '../components/common/Avatar';
 import Button from '../components/common/Button';
 import LoadingSpinner from '../components/common/LoadingSpinner';
 import LoadingSkeleton from '../components/common/LoadingSkeleton';
+import StoryBar from '../components/stories/StoryBar';
 
 // ─── PostCard ────────────────────────────────────────────────────────────────
 function PostCard({ post, onLike, onDelete, onCommentAdded }: {
@@ -306,38 +306,7 @@ function CreatePostForm({ onCreated }: { onCreated: (post: Post) => void }) {
   );
 }
 
-// ─── StoryBar ─────────────────────────────────────────────────────────────────
-function StoryBar() {
-  const [stories, setStories] = useState<Story[]>([]);
 
-  useEffect(() => {
-    storyService.getFeed()
-      .then((r) => setStories(r.data.data ?? []))
-      .catch(() => {});
-  }, []);
-
-  if (stories.length === 0) return null;
-
-  return (
-    <div className="bg-white rounded-2xl shadow-sm border border-gray-100 p-4">
-      <h3 className="text-sm font-semibold text-[#1C1E21] mb-3">Tin nổi bật</h3>
-      <div className="flex gap-2 overflow-x-auto pb-1">
-        {stories.map((story) => (
-          <div key={story.id} className="shrink-0 w-20 flex flex-col items-center gap-1">
-            <div className="w-14 h-14 rounded-full ring-2 ring-[#1877F2] overflow-hidden bg-[#F0F2F5]">
-              {story.imageUrl ? (
-                <img src={story.imageUrl} alt={story.user.fullName} className="w-full h-full object-cover" />
-              ) : (
-                <Avatar src={story.user.avatarUrl} fallback={story.user.fullName} size="lg" />
-              )}
-            </div>
-            <span className="text-xs text-[#1C1E21] font-medium text-center leading-tight line-clamp-2">{story.user.fullName}</span>
-          </div>
-        ))}
-      </div>
-    </div>
-  );
-}
 
 // ─── TrendingHashtags ─────────────────────────────────────────────────────────
 function TrendingHashtags() {

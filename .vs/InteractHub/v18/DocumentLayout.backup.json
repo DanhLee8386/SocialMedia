@@ -1,12 +1,88 @@
 {
   "Version": 1,
   "WorkspaceRootPath": "C:\\Danh\\CSharp\\Project_CSharp\\",
-  "Documents": [],
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{5FFD3BB2-69DC-4825-911E-D60D51751758}|InteractHub.API\\InteractHub.API.csproj|c:\\danh\\csharp\\project_csharp\\interacthub.api\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
+      "RelativeMoniker": "D:0:0:{5FFD3BB2-69DC-4825-911E-D60D51751758}|InteractHub.API\\InteractHub.API.csproj|solutionrelative:interacthub.api\\appsettings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{5FFD3BB2-69DC-4825-911E-D60D51751758}|InteractHub.API\\InteractHub.API.csproj|c:\\danh\\csharp\\project_csharp\\interacthub.api\\interacthub.api.http||{5703B403-55E7-4C63-8C88-A8F52C7A45C5}",
+      "RelativeMoniker": "D:0:0:{5FFD3BB2-69DC-4825-911E-D60D51751758}|InteractHub.API\\InteractHub.API.csproj|solutionrelative:interacthub.api\\interacthub.api.http||{5703B403-55E7-4C63-8C88-A8F52C7A45C5}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{5FFD3BB2-69DC-4825-911E-D60D51751758}|InteractHub.API\\InteractHub.API.csproj|c:\\danh\\csharp\\project_csharp\\interacthub.api\\package-lock.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
+      "RelativeMoniker": "D:0:0:{5FFD3BB2-69DC-4825-911E-D60D51751758}|InteractHub.API\\InteractHub.API.csproj|solutionrelative:interacthub.api\\package-lock.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{5FFD3BB2-69DC-4825-911E-D60D51751758}|InteractHub.API\\InteractHub.API.csproj|c:\\danh\\csharp\\project_csharp\\interacthub.api\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{5FFD3BB2-69DC-4825-911E-D60D51751758}|InteractHub.API\\InteractHub.API.csproj|solutionrelative:interacthub.api\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
   "DocumentGroupContainers": [
     {
       "Orientation": 0,
       "VerticalTabListWidth": 256,
-      "DocumentGroups": []
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 0,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "appsettings.json",
+              "DocumentMoniker": "C:\\Danh\\CSharp\\Project_CSharp\\InteractHub.API\\appsettings.json",
+              "RelativeDocumentMoniker": "InteractHub.API\\appsettings.json",
+              "ToolTip": "C:\\Danh\\CSharp\\Project_CSharp\\InteractHub.API\\appsettings.json",
+              "RelativeToolTip": "InteractHub.API\\appsettings.json",
+              "ViewState": "AgIAAAkAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
+              "WhenOpened": "2026-04-29T05:11:42.805Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "Program.cs",
+              "DocumentMoniker": "C:\\Danh\\CSharp\\Project_CSharp\\InteractHub.API\\Program.cs",
+              "RelativeDocumentMoniker": "InteractHub.API\\Program.cs",
+              "ToolTip": "C:\\Danh\\CSharp\\Project_CSharp\\InteractHub.API\\Program.cs",
+              "RelativeToolTip": "InteractHub.API\\Program.cs",
+              "ViewState": "AgIAACEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-04-29T05:10:13.823Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "package-lock.json",
+              "DocumentMoniker": "C:\\Danh\\CSharp\\Project_CSharp\\InteractHub.API\\package-lock.json",
+              "RelativeDocumentMoniker": "InteractHub.API\\package-lock.json",
+              "ToolTip": "C:\\Danh\\CSharp\\Project_CSharp\\InteractHub.API\\package-lock.json",
+              "RelativeToolTip": "InteractHub.API\\package-lock.json",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
+              "WhenOpened": "2026-04-29T05:10:11.082Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "InteractHub.API.http",
+              "DocumentMoniker": "C:\\Danh\\CSharp\\Project_CSharp\\InteractHub.API\\InteractHub.API.http",
+              "RelativeDocumentMoniker": "InteractHub.API\\InteractHub.API.http",
+              "ToolTip": "C:\\Danh\\CSharp\\Project_CSharp\\InteractHub.API\\InteractHub.API.http",
+              "RelativeToolTip": "InteractHub.API\\InteractHub.API.http",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003502|",
+              "WhenOpened": "2026-04-29T05:10:06.349Z",
+              "EditorCaption": ""
+            }
+          ]
+        }
+      ]
     }
   ]
 }

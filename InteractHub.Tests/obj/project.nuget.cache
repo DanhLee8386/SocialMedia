@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "e+f6WQUxpbA=",
+  "dgSpecHash": "v08wAQwqEFo=",
   "success": true,
-  "projectFilePath": "C:\\Danh\\CSharp\\Project_CSharp\\InteractHub.Tests\\InteractHub.Tests.csproj",
+  "projectFilePath": "C:\\Danh\\CSharp\\SocialMedia\\InteractHub.Tests\\InteractHub.Tests.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\HP\\.nuget\\packages\\azure.core\\1.38.0\\azure.core.1.38.0.nupkg.sha512",
     "C:\\Users\\HP\\.nuget\\packages\\azure.identity\\1.11.4\\azure.identity.1.11.4.nupkg.sha512",

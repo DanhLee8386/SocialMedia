@@ -295,7 +295,7 @@ export default function ProfilePage() {
         <div className="px-6 pb-6">
           {/* Avatar overlapping cover */}
           <div className="flex items-end justify-between -mt-12 mb-4">
-            <div className="ring-4 ring-white rounded-full">
+            <div className="ring-4 ring-white rounded-full z-100">
               <Avatar src={profile.avatarUrl} fallback={profile.fullName} size="xl" className="!w-24 !h-24 !text-2xl" />
             </div>
             <div className="flex gap-2 mt-8">

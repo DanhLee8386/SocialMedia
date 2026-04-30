@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Danh\\CSharp\\Project_CSharp\\InteractHub.Tests\\InteractHub.Tests.csproj": {}
+    "C:\\Danh\\CSharp\\SocialMedia\\InteractHub.Tests\\InteractHub.Tests.csproj": {}
   },
   "projects": {
-    "C:\\Danh\\CSharp\\Project_CSharp\\InteractHub.API\\InteractHub.API.csproj": {
+    "C:\\Danh\\CSharp\\SocialMedia\\InteractHub.API\\InteractHub.API.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Danh\\CSharp\\Project_CSharp\\InteractHub.API\\InteractHub.API.csproj",
+        "projectUniqueName": "C:\\Danh\\CSharp\\SocialMedia\\InteractHub.API\\InteractHub.API.csproj",
         "projectName": "InteractHub.API",
-        "projectPath": "C:\\Danh\\CSharp\\Project_CSharp\\InteractHub.API\\InteractHub.API.csproj",
+        "projectPath": "C:\\Danh\\CSharp\\SocialMedia\\InteractHub.API\\InteractHub.API.csproj",
         "packagesPath": "C:\\Users\\HP\\.nuget\\packages\\",
-        "outputPath": "C:\\Danh\\CSharp\\Project_CSharp\\InteractHub.API\\obj\\",
+        "outputPath": "C:\\Danh\\CSharp\\SocialMedia\\InteractHub.API\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
@@ -136,14 +136,14 @@
         }
       }
     },
-    "C:\\Danh\\CSharp\\Project_CSharp\\InteractHub.Tests\\InteractHub.Tests.csproj": {
+    "C:\\Danh\\CSharp\\SocialMedia\\InteractHub.Tests\\InteractHub.Tests.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Danh\\CSharp\\Project_CSharp\\InteractHub.Tests\\InteractHub.Tests.csproj",
+        "projectUniqueName": "C:\\Danh\\CSharp\\SocialMedia\\InteractHub.Tests\\InteractHub.Tests.csproj",
         "projectName": "InteractHub.Tests",
-        "projectPath": "C:\\Danh\\CSharp\\Project_CSharp\\InteractHub.Tests\\InteractHub.Tests.csproj",
+        "projectPath": "C:\\Danh\\CSharp\\SocialMedia\\InteractHub.Tests\\InteractHub.Tests.csproj",
         "packagesPath": "C:\\Users\\HP\\.nuget\\packages\\",
-        "outputPath": "C:\\Danh\\CSharp\\Project_CSharp\\InteractHub.Tests\\obj\\",
+        "outputPath": "C:\\Danh\\CSharp\\SocialMedia\\InteractHub.Tests\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
@@ -164,8 +164,8 @@
           "net9.0": {
             "targetAlias": "net9.0",
             "projectReferences": {
-              "C:\\Danh\\CSharp\\Project_CSharp\\InteractHub.API\\InteractHub.API.csproj": {
-                "projectPath": "C:\\Danh\\CSharp\\Project_CSharp\\InteractHub.API\\InteractHub.API.csproj"
+              "C:\\Danh\\CSharp\\SocialMedia\\InteractHub.API\\InteractHub.API.csproj": {
+                "projectPath": "C:\\Danh\\CSharp\\SocialMedia\\InteractHub.API\\InteractHub.API.csproj"
               }
             }
           }
