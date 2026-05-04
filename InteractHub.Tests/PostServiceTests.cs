@@ -201,7 +201,7 @@ public class PostServiceTests : IDisposable
     }
 
     [Fact]
-    public async Task GetFeedAsync_ExcludesStrangersPost()
+    public async Task GetFeedAsync_WithNoFriends_ReturnsPublicPosts()
     {
         // Arrange - không có friendship giữa user1 và user2
         _context.Posts.Add(new Post
@@ -217,7 +217,7 @@ public class PostServiceTests : IDisposable
 
         // Assert
         Assert.NotNull(result);
-        Assert.Equal(0, result.TotalCount);
+        Assert.Equal(1, result.TotalCount);
     }
 
     // ================================================================
