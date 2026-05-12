@@ -1,4 +1,4 @@
-import { useState, useEffect, useCallback } from 'react';
+import { useState, useEffect, useCallback, useRef } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { useAuth } from '../context/AuthContext';
 import { postService } from '../services/postService';
@@ -10,12 +10,122 @@ import LoadingSpinner from '../components/common/LoadingSpinner';
 import LoadingSkeleton from '../components/common/LoadingSkeleton';
 import StoryBar from '../components/stories/StoryBar';
 
+// ─── ShareModal ──────────────────────────────────────────────────────────────
+function ShareModal({
+  post,
+  onClose,
+  onShared,
+}: {
+  post: Post;
+  onClose: () => void;
+  onShared: (newPost: Post) => void;
+}) {
+  const { user } = useAuth();
+  const [caption, setCaption] = useState('');
+  const [loading, setLoading] = useState(false);
+  const [error, setError] = useState('');
+  const textareaRef = useRef<HTMLTextAreaElement>(null);
+
+  useEffect(() => {
+    textareaRef.current?.focus();
+  }, []);
+
+  const handleShare = async () => {
+    setLoading(true);
+    setError('');
+    try {
+      const res = await postService.share(post.id, { content: caption.trim() });
+      onShared(res.data.data);
+      onClose();
+    } catch {
+      setError('Không thể chia sẻ bài viết. Vui lòng thử lại.');
+    } finally {
+      setLoading(false);
+    }
+  };
+
+  return (
+    <div
+      className="fixed inset-0 z-50 flex items-center justify-center bg-black/50 backdrop-blur-sm"
+      onClick={(e) => e.target === e.currentTarget && onClose()}
+    >
+      <div className="bg-white rounded-2xl shadow-2xl w-full max-w-lg mx-4 overflow-hidden animate-fade-in">
+        {/* Modal Header */}
+        <div className="flex items-center justify-between px-5 py-4 border-b border-gray-100">
+          <h2 className="text-base font-semibold text-[#1C1E21]">Chia sẻ bài viết</h2>
+          <button
+            onClick={onClose}
+            className="w-8 h-8 flex items-center justify-center rounded-full hover:bg-[#F0F2F5] text-[#65676B] transition"
+            aria-label="Đóng"
+          >
+            <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
+            </svg>
+          </button>
+        </div>
+
+        {/* Caption input */}
+        <div className="px-5 py-4">
+          <div className="flex gap-3 mb-4">
+            <Avatar src={user?.avatarUrl} fallback={user?.fullName} size="md" />
+            <div className="flex-1">
+              <p className="text-sm font-semibold text-[#1C1E21]">{user?.fullName}</p>
+              <textarea
+                ref={textareaRef}
+                value={caption}
+                onChange={(e) => setCaption(e.target.value)}
+                placeholder="Viết gì đó về bài viết này..."
+                rows={3}
+                className="mt-1 w-full bg-[#F0F2F5] rounded-xl px-4 py-2.5 text-sm text-[#1C1E21] placeholder-[#65676B] outline-none focus:ring-2 focus:ring-[#1877F2]/30 resize-none transition"
+              />
+            </div>
+          </div>
+
+          {/* Original post preview */}
+          <div className="border border-gray-200 rounded-xl p-3 bg-[#F7F8FA]">
+            <div className="flex items-center gap-2 mb-2">
+              <Avatar src={post.user.avatarUrl} fallback={post.user.fullName} size="sm" />
+              <div>
+                <p className="text-xs font-semibold text-[#1C1E21]">{post.user.fullName}</p>
+                <p className="text-xs text-[#65676B]">@{post.user.userName}</p>
+              </div>
+            </div>
+            {post.content && (
+              <p className="text-sm text-[#1C1E21] line-clamp-3 leading-relaxed">{post.content}</p>
+            )}
+            {post.imageUrl && (
+              <img
+                src={post.imageUrl}
+                alt="Ảnh bài viết"
+                className="mt-2 w-full rounded-lg object-cover max-h-40"
+              />
+            )}
+          </div>
+
+          {error && <p className="text-red-500 text-xs mt-2">{error}</p>}
+        </div>
+
+        {/* Footer */}
+        <div className="px-5 pb-4 flex justify-end gap-2">
+          <Button variant="secondary" size="sm" onClick={onClose} disabled={loading}>
+            Hủy
+          </Button>
+          <Button size="sm" onClick={handleShare} loading={loading}>
+            Chia sẻ ngay
+          </Button>
+        </div>
+      </div>
+    </div>
+  );
+}
+
 // ─── PostCard ────────────────────────────────────────────────────────────────
-function PostCard({ post, onLike, onDelete, onCommentAdded }: {
+function PostCard({ post, onLike, onDelete, onCommentAdded, onShare }: {
   post: Post;
   onLike: (id: number) => void;
   onDelete?: (id: number) => void;
   onCommentAdded?: (postId: number) => void;
+  onShare?: (post: Post) => void;
 }) {
   const { user } = useAuth();
   const [commentText, setCommentText] = useState('');
@@ -170,6 +280,16 @@ function PostCard({ post, onLike, onDelete, onCommentAdded }: {
             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z" />
           </svg>
           Bình luận
+        </button>
+        <button
+          type="button"
+          onClick={() => onShare?.(post)}
+          className="flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-sm font-medium text-[#65676B] hover:bg-[#F0F2F5] transition"
+        >
+          <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8.684 13.342C8.886 12.938 9 12.482 9 12c0-.482-.114-.938-.316-1.342m0 2.684a3 3 0 110-2.684m0 2.684l6.632 3.316m-6.632-6l6.632-3.316m0 0a3 3 0 105.367-2.684 3 3 0 00-5.367 2.684zm0 9.316a3 3 0 105.368 2.684 3 3 0 00-5.368-2.684z" />
+          </svg>
+          Chia sẻ
         </button>
       </div>
 
@@ -424,6 +544,23 @@ export default function FeedPage() {
     }
   };
 
+  // ── Share ──────────────────────────────────────────────────────────────────
+  const [shareTargetPost, setShareTargetPost] = useState<Post | null>(null);
+
+  const handleShareClick = (post: Post) => {
+    setShareTargetPost(post);
+  };
+
+  const handleShareDone = (newPost: Post) => {
+    // Prepend shared post to feed + increment sharesCount on original
+    setPosts((prev) => [
+      newPost,
+      ...prev.map((p) =>
+        p.id === shareTargetPost?.id ? { ...p, sharesCount: p.sharesCount + 1 } : p
+      ),
+    ]);
+  };
+
   return (
     <div className="flex gap-6">
       {/* Left sidebar */}
@@ -488,6 +625,7 @@ export default function FeedPage() {
                 post={post}
                 onLike={handleLike}
                 onDelete={handleDelete}
+                onShare={handleShareClick}
                 onCommentAdded={(postId) =>
                   setPosts((prev) =>
                     prev.map((p) =>
@@ -497,6 +635,15 @@ export default function FeedPage() {
                 }
               />
             ))}
+
+            {/* Share Modal */}
+            {shareTargetPost && (
+              <ShareModal
+                post={shareTargetPost}
+                onClose={() => setShareTargetPost(null)}
+                onShared={handleShareDone}
+              />
+            )}
             {hasMore && (
               <div className="text-center">
                 <Button variant="secondary" onClick={handleLoadMore} loading={loading}>

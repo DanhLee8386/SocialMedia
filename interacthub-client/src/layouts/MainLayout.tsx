@@ -23,7 +23,7 @@ export default function MainLayout() {
     if (q.length > 0) {
       navigate(`/search?q=${encodeURIComponent(q)}`);
     }
-  }, [debouncedSearch, navigate]);
+  }, [debouncedSearch]);
 
   // Fetch unread notification count mỗi 30s
   useEffect(() => {
